@@ -18,6 +18,7 @@ public abstract class BodyPartDatabase extends RoomDatabase {
 
     public static BodyPartDatabase getInstance(Context context){
 
+        //BUILDS DATBASE
         if(instance == null){
             instance = Room.databaseBuilder(context.getApplicationContext(),BodyPartDatabase.class,
                     "bodyPart_database.db").fallbackToDestructiveMigration()
@@ -30,7 +31,7 @@ public abstract class BodyPartDatabase extends RoomDatabase {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db){
             super.onCreate(db);
-            //new PopulateDBAsyncTask(instance).execute();
+            new PopulateDBAsyncTask(instance).execute();
 
         }
     };

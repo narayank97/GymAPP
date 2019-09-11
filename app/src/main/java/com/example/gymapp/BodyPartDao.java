@@ -16,6 +16,9 @@ public interface BodyPartDao {
     @Delete
     void Delete(BodyPart bodyPart);
 
+    @Delete
+    void Update(BodyPart bodyPart);
+
     @Query("SELECT * FROM bodyPart_table")
     LiveData<List<BodyPart>> getAllBodyParts();
 
